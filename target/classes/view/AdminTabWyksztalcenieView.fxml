@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="649.0" prefWidth="618.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.pwn.reaktor.pracownicy.controller.AdminTabWyksztalcenieController">
+   <children>
+      <TableView fx:id="table_wyksztalcenie" editable="true" layoutY="115.0" prefHeight="474.0" prefWidth="731.0">
+        <columns>
+          <TableColumn fx:id="col_id" prefWidth="42.0" text="ID" />
+            <TableColumn fx:id="col_uczelnia" prefWidth="270.0" text="Uczelnia" />
+            <TableColumn fx:id="col_data_rozp" prefWidth="114.0" text="Data rozpoczęcia" />
+            <TableColumn fx:id="col_data_zak" prefWidth="121.0" text="Data zakończenia" />
+            <TableColumn fx:id="col_tytul" prefWidth="183.0" text="Tytuł" />
+        </columns>
+      </TableView>
+      <Button fx:id="btn_wstecz" layoutX="14.0" layoutY="600.0" mnemonicParsing="false" onMouseClicked="#a_wstecz" prefHeight="35.0" prefWidth="63.0" text="Wstecz" />
+      <Button fx:id="btn_wyloguj" layoutX="646.0" layoutY="600.0" mnemonicParsing="false" onMouseClicked="#a_wyloguj" prefHeight="35.0" prefWidth="70.0" text="Wyloguj" />
+      <Label layoutX="3.0" layoutY="5.0" prefHeight="17.0" prefWidth="163.0" text="Podaj dane do wyszukiwania:" />
+      <Separator layoutY="30.0" prefHeight="0.0" prefWidth="731.0" />
+      <Button fx:id="btn_filtruj" alignment="CENTER" layoutX="23.0" layoutY="42.0" mnemonicParsing="false" onMouseClicked="#select" prefHeight="17.0" prefWidth="143.0" text="Filtruj" />
+      <TextField fx:id="tf_filter_data_zak" layoutX="436.0" layoutY="78.0" prefHeight="25.0" prefWidth="110.0" promptText="Data zakończenia:" />
+      <TextField fx:id="tf_filter_uczelnia" layoutX="59.0" layoutY="78.0" prefHeight="25.0" prefWidth="245.0" promptText="Uczelnia:" />
+      <TextField fx:id="tf_filter_data_rozp" layoutX="318.0" layoutY="78.0" prefHeight="25.0" prefWidth="110.0" promptText="Data rozpoczęcia:" />
+      <Button fx:id="btn_usun" layoutX="574.0" layoutY="42.0" mnemonicParsing="false" onMouseClicked="#a_usun" prefHeight="25.0" prefWidth="143.0" text="Usuń wiersz" />
+      <TextField fx:id="tf_filter_tytul" layoutX="555.0" layoutY="78.0" prefHeight="25.0" prefWidth="163.0" promptText="Tytuł:" />
+   </children>
+</AnchorPane>

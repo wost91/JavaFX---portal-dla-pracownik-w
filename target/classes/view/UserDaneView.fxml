@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="495.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.pwn.reaktor.pracownicy.controller.UserDaneController">
+   <children>
+      <TableView fx:id="table_pracownicy" editable="true" layoutY="50.0" prefHeight="392.0" prefWidth="1200.0">
+        <columns>
+          <TableColumn fx:id="col_id" maxWidth="1.7976931348623157E308" prefWidth="35.0" text="Id" />
+          <TableColumn fx:id="col_imie" prefWidth="98.0" text="Imię" />
+            <TableColumn fx:id="col_nazwisko" prefWidth="152.0" text="Nazwisko" />
+            <TableColumn fx:id="col_dzial" prefWidth="158.0" text="Dział" />
+            <TableColumn fx:id="col_stanowisko" prefWidth="206.0" text="Stanowisko" />
+            <TableColumn fx:id="col_pensja" prefWidth="75.0" text="Pensja" />
+            <TableColumn fx:id="col_staz" prefWidth="72.0" text="Staż pracy" />
+            <TableColumn fx:id="col_kwalifikacja" prefWidth="140.0" text="Kwalifikacja do premii" />
+            <TableColumn fx:id="col_premia" prefWidth="111.0" text="Przyznana premia" />
+            <TableColumn fx:id="col_suma" prefWidth="154.0" text="Wynagrodzenie łącznie" />
+        </columns>
+      </TableView>
+      <Button fx:id="btn_wstecz" layoutX="14.0" layoutY="450.0" mnemonicParsing="false" onMouseClicked="#a_wstecz" prefHeight="35.0" prefWidth="63.0" text="Wstecz" />
+      <Button fx:id="btn_wyloguj" layoutX="1116.0" layoutY="450.0" mnemonicParsing="false" onMouseClicked="#a_wyloguj" prefHeight="35.0" prefWidth="70.0" text="Wyloguj" />
+      <Label layoutX="3.0" layoutY="5.0" prefHeight="17.0" prefWidth="163.0" text="Twoje dane:" />
+      <Separator layoutY="22.0" prefHeight="8.0" prefWidth="1200.0" />
+   </children>
+</AnchorPane>

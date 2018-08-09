@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="649.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.pwn.reaktor.pracownicy.controller.AdminZestStatystykiController">
+   <children>
+      <TableView fx:id="table_statystyki" editable="true" layoutY="115.0" prefHeight="474.0" prefWidth="972.0">
+        <columns>
+            <TableColumn fx:id="col_dzial" prefWidth="203.0" text="Dział" />
+            <TableColumn fx:id="col_budzet" prefWidth="103.0" text="Budżet" />
+            <TableColumn fx:id="col_liczba_prac" prefWidth="147.0" text="Liczba Pracowników" />
+            <TableColumn fx:id="col_budzet_na_prac" prefWidth="159.0" text="Budżet na pracownika" />
+            <TableColumn fx:id="col_sr_pensja" prefWidth="109.0" text="Średnia pensja" />
+            <TableColumn fx:id="col_suma" prefWidth="85.0" text="Suma pensji" />
+            <TableColumn fx:id="col_udzial" prefWidth="165.0" text="Udział pensji w budżecie" />
+        </columns>
+      </TableView>
+      <Button fx:id="btn_wstecz" layoutX="14.0" layoutY="600.0" mnemonicParsing="false" onMouseClicked="#a_wstecz" prefHeight="35.0" prefWidth="63.0" text="Wstecz" />
+      <Button fx:id="btn_wyloguj" layoutX="891.0" layoutY="600.0" mnemonicParsing="false" onMouseClicked="#a_wyloguj" prefHeight="35.0" prefWidth="70.0" text="Wyloguj" />
+      <Label layoutX="3.0" layoutY="5.0" prefHeight="17.0" prefWidth="163.0" text="Podaj dane do wyszukiwania:" />
+      <Separator layoutY="35.0" prefHeight="3.0" prefWidth="972.0" />
+      <TextField fx:id="tf_filter_budzet" layoutX="216.0" layoutY="78.0" prefHeight="25.0" prefWidth="85.0" promptText="Budżet:" />
+      <TextField fx:id="tf_filter_liczba_prac" layoutX="317.0" layoutY="78.0" prefHeight="25.0" prefWidth="127.0" promptText="Liczba pracowników:" />
+      <ComboBox fx:id="cmb_filter_dzial" layoutX="11.0" layoutY="78.0" prefHeight="25.0" prefWidth="179.0" promptText="Dział:" />
+      <Button fx:id="btn_filtruj" layoutX="444.0" layoutY="45.0" mnemonicParsing="false" onMouseClicked="#select" prefHeight="17.0" prefWidth="143.0" text="Filtruj" />
+      <TextField fx:id="tf_filter_budzet_na_prac" layoutX="472.0" layoutY="78.0" prefHeight="25.0" prefWidth="127.0" promptText="Budżet:" />
+      <TextField fx:id="tf_filter_srednia" layoutX="628.0" layoutY="78.0" prefHeight="25.0" prefWidth="78.0" promptText="Średnia:" />
+      <TextField fx:id="tf_filter_udzial_w_budzecie" layoutX="823.0" layoutY="78.0" prefHeight="25.0" prefWidth="135.0" promptText="Udział w budżecie:" />
+      <TextField fx:id="tf_filter_suma" layoutX="729.0" layoutY="78.0" prefHeight="25.0" prefWidth="63.0" promptText="Suma:" />
+   </children>
+</AnchorPane>

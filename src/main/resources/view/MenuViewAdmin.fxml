@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="table_pracownicy" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.pwn.reaktor.pracownicy.controller.MenuAdminController">
+   <children>
+      <MenuBar fx:id="menu" prefHeight="25.0" prefWidth="600.0">
+        <menus>
+          <Menu fx:id="menu_tabele" mnemonicParsing="false" text="Tabele">
+            <items>
+                  <MenuItem fx:id="m_tabele_dyr" mnemonicParsing="false" onAction="#a_m_tabele_dyr" text="Dyrektorzy" />
+              <MenuItem fx:id="m_tabele_dzial" mnemonicParsing="false" onAction="#a_m_tabele_dzial" text="Dział" />
+                  <MenuItem fx:id="m_tabele_historia" mnemonicParsing="false" onAction="#a_m_tabele_historia" text="Historia zatrudnienia" />
+                  <MenuItem fx:id="m_tabele_kwalifikacja" mnemonicParsing="false" onAction="#a_m_tabele_kwalifikacja" text="Kwalifikacja do premii" />
+                  <MenuItem fx:id="m_tabele_logowanie" mnemonicParsing="false" onAction="#a_m_tabele_logowanie" text="Logowanie" />
+                  <MenuItem fx:id="m_tabele_pracownicy" mnemonicParsing="false" onAction="#a_m_tabele_pracownicy" text="Pracownicy" />
+                  <MenuItem fx:id="m_tabele_prac_dzial" mnemonicParsing="false" onAction="#a_m_tabele_prac_dzial" text="Pracownik - dział" />
+                  <MenuItem fx:id="m_tabele_prac_stanowisko" mnemonicParsing="false" onAction="#a_m_tabele_prac_stanowisko" text="Pracownik - stanowisko" />
+                  <MenuItem fx:id="m_tabele_stanowisko_pensja" mnemonicParsing="false" onAction="#a_m_tabele_stanowisko_pensja" text="Stanowisko - pensja" />
+                  <MenuItem fx:id="m_tabele_staz" mnemonicParsing="false" onAction="#a_m_tabele_staz" text="Staż w firmie" />
+                  <MenuItem fx:id="m_tabele_wyksztalcenie" mnemonicParsing="false" onAction="#a_m_tabele_wyksztalcenie" text="Wykształcenie" />
+                  <MenuItem fx:id="m_tabele_wysokosc_premii" mnemonicParsing="false" onAction="#a_m_tabele_wysokosc_premii" text="Wysokość premii" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Zestawienia">
+            <items>
+              <MenuItem fx:id="m_zest_pracownicy" mnemonicParsing="false" onAction="#a_m_zest_pracownicy" text="Pracownicy i zarobki" />
+                  <MenuItem fx:id="m_zest_organizacja" mnemonicParsing="false" onAction="#a_m_zest_organizacja" text="Organizacja" />
+                  <MenuItem fx:id="m_zest_statystyki" mnemonicParsing="false" onAction="#a_m_zest_tytul_a_statystyki" text="Statystyki" />
+                  <MenuItem fx:id="m_zest_historia" mnemonicParsing="false" onAction="#a_m_zest_tytul_a_historia" text="Historia" />
+                  <MenuItem fx:id="m_zest_tytul_a_pensja" mnemonicParsing="false" onAction="#a_m_zest_tytul_a_pensja" text="Tytuł - pensja" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="O programie">
+            <items>
+              <MenuItem fx:id="m_info" mnemonicParsing="false" onAction="#a_m_info" text="Informacja" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Button fx:id="btn_wyloguj" layoutX="508.0" layoutY="353.0" mnemonicParsing="false" onMouseClicked="#a_wyloguj" prefHeight="33.0" prefWidth="78.0" text="Wyloguj" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="135.0" layoutY="25.0" prefHeight="44.0" prefWidth="331.0" text="Witaj w portalu pracowniczym WorkWorld!" textAlignment="CENTER">
+         <font>
+            <Font name="Calibri" size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="148.0" layoutY="69.0" prefHeight="44.0" prefWidth="304.0" text="Zalogowałeś się jako administrator. Z tego poziomu &#10;masz dostęp do podglądu i edycji wszystkich danych." />
+   </children>
+</AnchorPane>

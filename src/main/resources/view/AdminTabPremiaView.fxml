@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="638.0" prefWidth="385.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.pwn.reaktor.pracownicy.controller.AdminTabPremiaController">
+   <children>
+      <TableView fx:id="table_premia" editable="true" layoutY="115.0" prefHeight="467.0" prefWidth="383.0">
+        <columns>
+            <TableColumn fx:id="col_staz" prefWidth="190.0" text="Staż" />
+            <TableColumn fx:id="col_premia" prefWidth="196.0" text="Premia" />
+        </columns>
+      </TableView>
+      <Button fx:id="btn_wstecz" layoutX="11.0" layoutY="589.0" mnemonicParsing="false" onMouseClicked="#a_wstecz" prefHeight="35.0" prefWidth="63.0" text="Wstecz" />
+      <Button fx:id="btn_wyloguj" layoutX="301.0" layoutY="589.0" mnemonicParsing="false" onMouseClicked="#a_wyloguj" prefHeight="35.0" prefWidth="70.0" text="Wyloguj" />
+      <Label layoutX="3.0" layoutY="5.0" prefHeight="17.0" prefWidth="217.0" text="Podaj dane do wyszukiwania lub edycji:" />
+      <Separator layoutY="30.0" prefHeight="3.0" prefWidth="383.0" />
+      <TextField fx:id="tf_filter_premia" layoutX="206.0" layoutY="78.0" prefHeight="25.0" prefWidth="170.0" promptText="Premia:" />
+      <Button fx:id="btn_filtruj" layoutX="13.0" layoutY="40.0" mnemonicParsing="false" onMouseClicked="#select" prefHeight="17.0" prefWidth="143.0" text="Filtruj" />
+      <Button fx:id="btn_usun" layoutX="228.0" layoutY="40.0" mnemonicParsing="false" onMouseClicked="#a_usun" prefHeight="25.0" prefWidth="143.0" text="Usuń wiersz" />
+   </children>
+</AnchorPane>

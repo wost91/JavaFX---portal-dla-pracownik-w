@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="638.0" prefWidth="477.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.pwn.reaktor.pracownicy.controller.AdminZestTytulPensjaController">
+   <children>
+      <TableView fx:id="table_tytul_a_pensja" editable="true" layoutY="115.0" prefHeight="467.0" prefWidth="477.0">
+        <columns>
+            <TableColumn fx:id="col_tytul" prefWidth="235.0" text="Tytuł naukowy" />
+            <TableColumn fx:id="col_liczebnosc" prefWidth="106.0" text="Liczebność" />
+            <TableColumn fx:id="col_srednia" prefWidth="135.0" text="Średnia pensja" />
+        </columns>
+      </TableView>
+      <Button fx:id="btn_wstecz" layoutX="11.0" layoutY="589.0" mnemonicParsing="false" onMouseClicked="#a_wstecz" prefHeight="35.0" prefWidth="63.0" text="Wstecz" />
+      <Button fx:id="btn_wyloguj" layoutX="393.0" layoutY="589.0" mnemonicParsing="false" onMouseClicked="#a_wyloguj" prefHeight="35.0" prefWidth="70.0" text="Wyloguj" />
+      <Label layoutX="3.0" layoutY="5.0" prefHeight="17.0" prefWidth="163.0" text="Podaj dane do wyszukiwania:" />
+      <Separator layoutY="30.0" prefHeight="3.0" prefWidth="477.0" />
+      <TextField fx:id="tf_filter_liczebnosc" layoutX="247.0" layoutY="78.0" prefHeight="25.0" prefWidth="85.0" promptText="Liczebność:" />
+      <TextField fx:id="tf_filter_srednia" layoutX="359.0" layoutY="78.0" prefHeight="25.0" prefWidth="104.0" promptText="Średnia pensja:" />
+      <ComboBox fx:id="cmb_filter_tytul" layoutX="28.0" layoutY="78.0" prefHeight="25.0" prefWidth="179.0" promptText="Tytuł:" />
+      <Button fx:id="btn_filtruj" layoutX="167.0" layoutY="39.0" mnemonicParsing="false" onMouseClicked="#select" prefHeight="17.0" prefWidth="143.0" text="Filtruj" />
+   </children>
+</AnchorPane>

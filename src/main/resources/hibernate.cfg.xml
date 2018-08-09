@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">S@larian1</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/pracownicy</property>
+		<property name="format_sql">false</property>
+		<property name="show_sql">true</property>
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		<mapping class="pl.pwn.reaktor.pracownicy.model.Logowanie" />
+		<mapping class="pl.pwn.reaktor.pracownicy.model.ZestPracownicy" />
+		<mapping class="pl.pwn.reaktor.pracownicy.model.ZestPracownicyFilter" />
+		<mapping class="pl.pwn.reaktor.pracownicy.model.ZestOrganizacja" />
+		<mapping class="pl.pwn.reaktor.pracownicy.model.ZestOrganizacjaFilter" />
+		<mapping class="pl.pwn.reaktor.pracownicy.model.ZestHistoria" />
+		<mapping class="pl.pwn.reaktor.pracownicy.model.ZestHistoriaFilter" />
+		<mapping class="pl.pwn.reaktor.pracownicy.model.ZestStatystyki" />
+		<mapping class="pl.pwn.reaktor.pracownicy.model.ZestStatystykiFilter" />
+		<mapping class="pl.pwn.reaktor.pracownicy.model.ZestTytulPensja" />
+		<mapping class="pl.pwn.reaktor.pracownicy.model.ZestTytulPensjaFilter" />
+		<mapping class="pl.pwn.reaktor.pracownicy.model.TabDyrektorzy" />
+		<mapping class="pl.pwn.reaktor.pracownicy.model.TabDyrektorzyFilter" />
+		<mapping class="pl.pwn.reaktor.pracownicy.model.TabHistoria" />
+		<mapping class="pl.pwn.reaktor.pracownicy.model.TabHistoriaFilter" />
+		<mapping class="pl.pwn.reaktor.pracownicy.model.TabKwalifikacja" />
+		<mapping class="pl.pwn.reaktor.pracownicy.model.TabKwalifikacjaFilter" />
+		<mapping class="pl.pwn.reaktor.pracownicy.model.TabDzial" />
+		<mapping class="pl.pwn.reaktor.pracownicy.model.TabDzialFilter" />
+		<mapping class="pl.pwn.reaktor.pracownicy.model.TabLogowanie" />
+		<mapping class="pl.pwn.reaktor.pracownicy.model.TabLogowanieFilter" />
+		<mapping class="pl.pwn.reaktor.pracownicy.model.TabPracownicy" />
+		<mapping class="pl.pwn.reaktor.pracownicy.model.TabPracownicyFilter" />
+		<mapping class="pl.pwn.reaktor.pracownicy.model.TabPracownikDzial" />
+		<mapping class="pl.pwn.reaktor.pracownicy.model.TabPracownikDzialFilter" />
+		<mapping class="pl.pwn.reaktor.pracownicy.model.TabPracownikStanowisko" />
+		<mapping class="pl.pwn.reaktor.pracownicy.model.TabPracownikStanowiskoFilter" />
+		<mapping class="pl.pwn.reaktor.pracownicy.model.TabStanowiskoPensja" />
+		<mapping class="pl.pwn.reaktor.pracownicy.model.TabStanowiskoPensjaFilter" />
+		<mapping class="pl.pwn.reaktor.pracownicy.model.TabStaz" />
+		<mapping class="pl.pwn.reaktor.pracownicy.model.TabStazFilter" />
+		<mapping class="pl.pwn.reaktor.pracownicy.model.TabWyksztalcenie" />
+		<mapping class="pl.pwn.reaktor.pracownicy.model.TabWyksztalcenieFilter" />
+		<mapping class="pl.pwn.reaktor.pracownicy.model.TabPremia" />
+		<mapping class="pl.pwn.reaktor.pracownicy.model.TabPremiaFilter" />
+		
+	</session-factory>
+</hibernate-configuration>

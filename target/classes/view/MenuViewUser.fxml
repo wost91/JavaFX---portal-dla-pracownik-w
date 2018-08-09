@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="table_pracownicy" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.pwn.reaktor.pracownicy.controller.MenuUserController">
+   <children>
+      <MenuBar fx:id="menu" prefHeight="25.0" prefWidth="600.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Twoje dane">
+            <items>
+              <MenuItem fx:id="m_dane" mnemonicParsing="false" onAction="#a_m_dane" text="Podstawowe informacje" />
+                  <MenuItem fx:id="m_historia" mnemonicParsing="false" onAction="#a_m_historia" text="Historia zatrudnienia" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="O programie">
+            <items>
+              <MenuItem fx:id="m_info" mnemonicParsing="false" onAction="#a_m_info" text="Informacja" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Button fx:id="btn_wyloguj" layoutX="508.0" layoutY="353.0" mnemonicParsing="false" onMouseClicked="#a_wyloguj" prefHeight="33.0" prefWidth="78.0" text="Wyloguj" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="135.0" layoutY="25.0" prefHeight="44.0" prefWidth="331.0" text="Witaj w portalu pracowniczym WorkWorld!" textAlignment="CENTER">
+         <font>
+            <Font name="Calibri" size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="148.0" layoutY="69.0" prefHeight="62.0" prefWidth="304.0" text="Zalogowałeś się jako użytkownik. Z tego poziomu &#10;masz dostęp do podglądu swoich danych. W celu ich&#10;edycji skontaktuj się z administratorem." />
+   </children>
+</AnchorPane>
