@@ -137,7 +137,7 @@ public class AdminTabDyrektorzyController extends ControllerTemplate{
 		String dzialValue = tf_filter_dzial.getText();
 						
 		TabDyrektorzyFilter filter = new TabDyrektorzyFilter(dyrektorValue,dzialValue);
-		List<TabDyrektorzy> list = adminTabDyrektorzyService.filter(filter);
+		List<TabDyrektorzy> list = (List<TabDyrektorzy>) adminTabDyrektorzyService.filter(filter);
 
 		ObservableList<TabDyrektorzy> data = FXCollections.observableArrayList(list);
 		table_dyrektorzy.setItems(null);

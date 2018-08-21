@@ -9,6 +9,8 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
+import pl.pwn.reaktor.pracownicy.model.TabDyrektorzy;
+import pl.pwn.reaktor.pracownicy.model.TabDyrektorzyFilter;
 import pl.pwn.reaktor.pracownicy.model.TabWyksztalcenie;
 import pl.pwn.reaktor.pracownicy.model.TabWyksztalcenieFilter;
 import pl.pwn.reaktor.pracownicy.util.HibernateUtil;
@@ -23,31 +25,31 @@ public class AdminTabWyksztalcenieService extends ServiceTemplate{
 	}
 	public String reg2() {
 		return "id";
-	}			
-		
-	public List<TabWyksztalcenie> filter(TabWyksztalcenieFilter filter) {
-
-			Session session = HibernateUtil.getSessionFactory().openSession();
-
-			Criteria criteria = session.createCriteria(TabWyksztalcenie.class);
-
-			if (Objects.nonNull(filter.getUczelnia()) && !filter.getUczelnia().isEmpty()) {
-				criteria.add(Restrictions.eq("uczelnia", filter.getUczelnia()));
-			}
-			if (Objects.nonNull(filter.getDataRozp()) && !filter.getDataRozp().isEmpty()) {
-				criteria.add(Restrictions.eq("dataRozp", filter.getDataRozp()));
-			}
-			if (Objects.nonNull(filter.getDataZak()) && !filter.getDataZak().isEmpty()) {
-				criteria.add(Restrictions.eq("dataZak", filter.getDataZak()));
-			}
-			if (Objects.nonNull(filter.getTytul()) && !filter.getTytul().isEmpty()) {
-				criteria.add(Restrictions.eq("tytul", filter.getTytul()));
-			}
-			
-			List<TabWyksztalcenie> kryteria = criteria.list();
-
-			session.close();
-			return kryteria;
-			
+	}
+	public Class<TabWyksztalcenie> getCl(){
+		return TabWyksztalcenie.class;
+	}	
+	public void colList(List<String> colList){
+		colList.add("uczelnia");
+		colList.add("dataRozp");
+		colList.add("dataZak");
+		colList.add("tytul");	
+	}	
+	public Object getter(int i, Object filter) {
+		if(i==0) {
+			return ((TabWyksztalcenieFilter) filter).getUczelnia();
+		}
+		else if(i==1) {
+			return ((TabWyksztalcenieFilter) filter).getDataRozp();
+		} 
+		else if(i==2) {
+			return ((TabWyksztalcenieFilter) filter).getDataZak();
+		} 
+		else {
+			return ((TabWyksztalcenieFilter) filter).getTytul();
 		}		
 	}
+	public String condition1(int i) {
+		return "x";
+	}
+}

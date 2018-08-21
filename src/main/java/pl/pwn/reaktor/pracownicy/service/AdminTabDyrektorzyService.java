@@ -1,5 +1,6 @@
 package pl.pwn.reaktor.pracownicy.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -23,23 +24,23 @@ public class AdminTabDyrektorzyService extends ServiceTemplate {
 	}
 	public String reg2() {
 		return "dyrektor";
-	}
-	
-	public List<TabDyrektorzy> filter(TabDyrektorzyFilter filter) {
-
-		Session session = HibernateUtil.getSessionFactory().openSession();
-
-		Criteria criteria = session.createCriteria(TabDyrektorzy.class);
-
-		if (Objects.nonNull(filter.getDyrektor()) && !filter.getDyrektor().isEmpty()) {
-			criteria.add(Restrictions.eq("dyrektor", filter.getDyrektor()));
-		}
-		if (Objects.nonNull(filter.getDzial()) && !filter.getDzial().isEmpty()) {
-			criteria.add(Restrictions.eq("dzial", filter.getDzial()));
-		}		
-		List<TabDyrektorzy> kryteria = criteria.list();
-
-		session.close();
-		return kryteria;		
+	}		
+	public Class<TabDyrektorzy> getCl(){
+		return TabDyrektorzy.class;
 	}	
+	public void colList(List<String> colList){
+		colList.add("dyrektor");
+		colList.add("dzial");		
+	}	
+	public Object getter(int i, Object filter) {
+		if(i==0) {
+			return ((TabDyrektorzyFilter) filter).getDyrektor();
+		} 
+		else {
+			return ((TabDyrektorzyFilter) filter).getDzial();
+		}		
+	}
+	public String condition1(int i) {
+		return "x";
+	}
 }

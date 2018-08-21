@@ -127,7 +127,7 @@ public class AdminZestStatystykiController extends ControllerTemplate{
 		String udzialPensjiValue = tf_filter_udzial_w_budzecie.getText();
 		
 		ZestStatystykiFilter filter = new ZestStatystykiFilter(dzialValue,budzetValue,liczbaPracValue,budzetNaPracownikaValue,sredniaPensjaValue,sumaPensjiValue,udzialPensjiValue);
-		List<ZestStatystyki> list = adminZestStatystykiService.filter(filter);
+		List<ZestStatystyki> list = (List<ZestStatystyki>) adminZestStatystykiService.filter(filter);
 
 		ObservableList<ZestStatystyki> data = FXCollections.observableArrayList(list);
 		table_statystyki.setItems(null);

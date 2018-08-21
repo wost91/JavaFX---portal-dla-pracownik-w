@@ -101,7 +101,7 @@ public class AdminTabDzialController extends ControllerTemplate{
     	String liczbaPracValue = tf_filter_liczba_prac.getText();
 						
 		TabDzialFilter filter = new TabDzialFilter(dzialValue,budzetValue,liczbaPracValue);
-		List<TabDzial> list = adminTabDzialService.filter(filter);
+		List<TabDzial> list = (List<TabDzial>) adminTabDzialService.filter(filter);
 
 		ObservableList<TabDzial> data = FXCollections.observableArrayList(list);
 		table_dzial.setItems(null);

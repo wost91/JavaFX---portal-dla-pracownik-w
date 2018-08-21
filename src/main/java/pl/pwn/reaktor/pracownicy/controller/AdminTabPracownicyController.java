@@ -111,7 +111,7 @@ public class AdminTabPracownicyController extends ControllerTemplate{
     	String dataUrValue = tf_filter_data_ur.getText();
 		
 		TabPracownicyFilter filter = new TabPracownicyFilter(imieValue,nazwiskoValue,peselValue,dataUrValue);
-		List<TabPracownicy> list = adminTabPracownicyService.filter(filter);
+		List<TabPracownicy> list = (List<TabPracownicy>) adminTabPracownicyService.filter(filter);
 
 		ObservableList<TabPracownicy> data = FXCollections.observableArrayList(list);
 		table_pracownicy.setItems(null);

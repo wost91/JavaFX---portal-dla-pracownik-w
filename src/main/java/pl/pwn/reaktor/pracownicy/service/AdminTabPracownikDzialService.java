@@ -9,6 +9,8 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
+import pl.pwn.reaktor.pracownicy.model.TabDyrektorzy;
+import pl.pwn.reaktor.pracownicy.model.TabDyrektorzyFilter;
 import pl.pwn.reaktor.pracownicy.model.TabPracownikDzial;
 import pl.pwn.reaktor.pracownicy.model.TabPracownikDzialFilter;
 import pl.pwn.reaktor.pracownicy.util.HibernateUtil;
@@ -23,21 +25,17 @@ public class AdminTabPracownikDzialService extends ServiceTemplate{
 	}
 	public String reg2() {
 		return "id";
-	}			
-
-	public List<TabPracownikDzial> filter(TabPracownikDzialFilter filter) {
-
-		Session session = HibernateUtil.getSessionFactory().openSession();
-
-		Criteria criteria = session.createCriteria(TabPracownikDzial.class);
-
-		if (Objects.nonNull(filter.getDzial()) && !filter.getDzial().isEmpty()) {
-			criteria.add(Restrictions.eq("dzial", filter.getDzial()));
-		}
-						
-		List<TabPracownikDzial> kryteria = criteria.list();
-
-		session.close();
-		return kryteria;		
+	}
+	public Class<TabPracownikDzial> getCl(){
+		return TabPracownikDzial.class;
 	}	
+	public void colList(List<String> colList){
+		colList.add("dzial");		
+	}	
+	public Object getter(int i, Object filter) {
+		return ((TabPracownikDzialFilter) filter).getDzial();
+	}
+	public String condition1(int i) {
+		return "x";
+	}
 }

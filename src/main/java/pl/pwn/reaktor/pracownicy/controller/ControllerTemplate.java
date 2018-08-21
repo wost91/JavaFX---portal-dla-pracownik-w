@@ -16,7 +16,6 @@ public abstract class ControllerTemplate {
 	@FXML
     public void a_usun(MouseEvent event) {
     	if (condition1()) {
-
 			Alert error = new Alert(AlertType.ERROR);
 			error.setHeaderText("ERROR");
 			error.setContentText("Nale¿y najpierw wybraæ wiersz");

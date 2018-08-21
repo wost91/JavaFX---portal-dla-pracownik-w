@@ -9,6 +9,8 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
+import pl.pwn.reaktor.pracownicy.model.TabWyksztalcenie;
+import pl.pwn.reaktor.pracownicy.model.TabWyksztalcenieFilter;
 import pl.pwn.reaktor.pracownicy.model.ZestHistoria;
 import pl.pwn.reaktor.pracownicy.model.ZestHistoriaFilter;
 import pl.pwn.reaktor.pracownicy.util.HibernateUtil;
@@ -23,33 +25,35 @@ public class AdminZestHistoriaService extends ServiceTemplate{
 	}
 	public String reg2() {
 		return null;		
-	}			
-	
-	public List<ZestHistoria> filter(ZestHistoriaFilter filter) {
-
-		Session session = HibernateUtil.getSessionFactory().openSession();
-
-		Criteria criteria = session.createCriteria(ZestHistoria.class);
-
-		if (Objects.nonNull(filter.getImie()) && !filter.getImie().isEmpty()) {
-			criteria.add(Restrictions.eq("imie", filter.getImie()));
+	}	
+	public Class<ZestHistoria> getCl(){
+		return ZestHistoria.class;
+	}	
+	public void colList(List<String> colList){
+		colList.add("imie");
+		colList.add("nazwisko");
+		colList.add("poprzPracodawca");
+		colList.add("doswiadczenie");
+		colList.add("pensja");
+	}	
+	public Object getter(int i, Object filter) {
+		if(i==0) {
+			return ((ZestHistoriaFilter) filter).getImie();
 		}
-		if (Objects.nonNull(filter.getNazwisko()) && !filter.getNazwisko().isEmpty()) {
-			criteria.add(Restrictions.eq("nazwisko", filter.getNazwisko()));
+		else if(i==1) {
+			return ((ZestHistoriaFilter) filter).getNazwisko();
+		} 
+		else if(i==2) {
+			return ((ZestHistoriaFilter) filter).getPoprzPracodawca();
 		}
-		if (Objects.nonNull(filter.getPoprzPracodawca()) && !filter.getPoprzPracodawca().isEmpty()) {
-			criteria.add(Restrictions.eq("poprzPracodawca", filter.getPoprzPracodawca()));
+		else if(i==3) {
+			return ((ZestHistoriaFilter) filter).getDoswiadczenie();
 		}
-		if (Objects.nonNull(filter.getDoswiadczenie()) && !filter.getDoswiadczenie().isEmpty()) {
-			criteria.add(Restrictions.eq("doswiadczenie", filter.getDoswiadczenie()));
+		else {
+			return ((ZestHistoriaFilter) filter).getPensja();
 		}
-		if (Objects.nonNull(filter.getPensja()) && !filter.getPensja().isEmpty()) {
-			criteria.add(Restrictions.eq("pensja", filter.getPensja()));
-		}
-		
-		List<ZestHistoria> kryteria = criteria.list();
-
-		session.close();
-		return kryteria;
+	}
+	public String condition1(int i) {
+		return "x";
 	}
 }

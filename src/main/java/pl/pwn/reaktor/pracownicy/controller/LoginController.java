@@ -63,8 +63,7 @@ public class LoginController {
 			error.setContentText("Enter valid login/password");
 			error.setTitle("Wrong login or password");
 			error.show();
-		}
-		
+		}		
 	}
 
 	private LoginService loginService;
@@ -72,5 +71,4 @@ public class LoginController {
 	public void initialize() {
 		loginService = new LoginService();
 	}
-
 }

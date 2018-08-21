@@ -115,7 +115,7 @@ public class AdminTabWyksztalcenieController extends ControllerTemplate{
 		String tytulValue = tf_filter_tytul.getText();
 						
 		TabWyksztalcenieFilter filter = new TabWyksztalcenieFilter(uczelniaValue,dataRozpValue,dataZakValue,tytulValue);
-		List<TabWyksztalcenie> list = adminTabWyksztalcenieService.filter(filter);
+		List<TabWyksztalcenie> list = (List<TabWyksztalcenie>) adminTabWyksztalcenieService.filter(filter);
 
 		ObservableList<TabWyksztalcenie> data = FXCollections.observableArrayList(list);
 		table_wyksztalcenie.setItems(null);

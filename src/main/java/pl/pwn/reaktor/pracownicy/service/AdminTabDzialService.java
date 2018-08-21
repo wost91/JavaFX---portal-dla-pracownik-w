@@ -6,6 +6,9 @@ import java.util.Objects;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
+
+import pl.pwn.reaktor.pracownicy.model.TabDyrektorzy;
+import pl.pwn.reaktor.pracownicy.model.TabDyrektorzyFilter;
 import pl.pwn.reaktor.pracownicy.model.TabDzial;
 import pl.pwn.reaktor.pracownicy.model.TabDzialFilter;
 import pl.pwn.reaktor.pracownicy.util.HibernateUtil;
@@ -20,27 +23,27 @@ public class AdminTabDzialService extends ServiceTemplate{
 	}
 	public String reg2() {
 		return "dzial";
+	}	
+	public Class<TabDzial> getCl(){
+		return TabDzial.class;
+	}	
+	public void colList(List<String> colList){
+		colList.add("dzial");
+		colList.add("budzet");	
+		colList.add("liczbaPrac");
+	}	
+	public Object getter(int i, Object filter) {
+		if(i==0) {
+			return ((TabDzialFilter) filter).getDzial();
+		} 
+		else if(i==1) {
+			return ((TabDzialFilter) filter).getBudzet();
+		} 
+		else {
+			return ((TabDzialFilter) filter).getLiczbaPrac();
+		}		
 	}
-	
-	public List<TabDzial> filter(TabDzialFilter filter) {
-
-		Session session = HibernateUtil.getSessionFactory().openSession();
-
-		Criteria criteria = session.createCriteria(TabDzial.class);
-
-		if (Objects.nonNull(filter.getDzial()) && !filter.getDzial().isEmpty()) {
-			criteria.add(Restrictions.eq("dzial", filter.getDzial()));
-		}
-		if (Objects.nonNull(filter.getBudzet()) && !filter.getBudzet().isEmpty()) {
-			criteria.add(Restrictions.eq("budzet", filter.getBudzet()));
-		}
-		if (Objects.nonNull(filter.getLiczbaPrac()) && !filter.getLiczbaPrac().isEmpty()) {
-			criteria.add(Restrictions.eq("liczbaPrac", filter.getLiczbaPrac()));
-		}
-		
-		List<TabDzial> kryteria = criteria.list();
-
-		session.close();
-		return kryteria;		
+	public String condition1(int i) {
+		return "x";
 	}
 }

@@ -9,6 +9,8 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
+import pl.pwn.reaktor.pracownicy.model.TabPracownikStanowisko;
+import pl.pwn.reaktor.pracownicy.model.TabPracownikStanowiskoFilter;
 import pl.pwn.reaktor.pracownicy.model.TabPremia;
 import pl.pwn.reaktor.pracownicy.model.TabPremiaFilter;
 import pl.pwn.reaktor.pracownicy.util.HibernateUtil;
@@ -24,20 +26,16 @@ public class AdminTabPremiaService extends ServiceTemplate{
 	public String reg2() {
 		return "staz";
 	}
-	
-	public List<TabPremia> filter(TabPremiaFilter filter) {
-
-		Session session = HibernateUtil.getSessionFactory().openSession();
-
-		Criteria criteria = session.createCriteria(TabPremia.class);
-
-		if (Objects.nonNull(filter.getPremia()) && !filter.getPremia().isEmpty()) {
-			criteria.add(Restrictions.eq("premia", filter.getPremia()));
-		}
-						
-		List<TabPremia> kryteria = criteria.list();
-
-		session.close();
-		return kryteria;		
+	public Class<TabPremia> getCl(){
+		return TabPremia.class;
+	}	
+	public void colList(List<String> colList){
+		colList.add("premia");	
+	}	
+	public Object getter(int i, Object filter) {
+		return ((TabPremiaFilter) filter).getPremia();
+	}
+	public String condition1(int i) {
+		return "x";
 	}
 }

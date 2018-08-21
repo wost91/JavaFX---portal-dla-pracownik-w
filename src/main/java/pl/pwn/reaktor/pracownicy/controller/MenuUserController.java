@@ -65,5 +65,4 @@ public class MenuUserController {
 		Scene scene = new Scene(parent);
 		Main.getPrimaryStage().setScene(scene);
     }
-
 }

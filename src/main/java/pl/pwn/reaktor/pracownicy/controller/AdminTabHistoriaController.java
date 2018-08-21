@@ -103,7 +103,7 @@ public class AdminTabHistoriaController extends ControllerTemplate{
 		String dataOdejsciaValue = tf_filter_data_odejscia.getText();
 						
 		TabHistoriaFilter filter = new TabHistoriaFilter(poprzPracodawcaValue,dataZatrValue,dataOdejsciaValue);
-		List<TabHistoria> list = adminTabHistoriaService.filter(filter);
+		List<TabHistoria> list = (List<TabHistoria>) adminTabHistoriaService.filter(filter);
 
 		ObservableList<TabHistoria> data = FXCollections.observableArrayList(list);
 		table_historia.setItems(null);

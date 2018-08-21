@@ -87,7 +87,7 @@ public class AdminTabKwalifikacjaController extends ControllerTemplate{
     	String kwalifikacjaValue = tf_filter_kwalifikacja.getText();
 								
 		TabKwalifikacjaFilter filter = new TabKwalifikacjaFilter(kwalifikacjaValue);
-		List<TabKwalifikacja> list = adminTabKwalifikacjaService.filter(filter);
+		List<TabKwalifikacja> list = (List<TabKwalifikacja>) adminTabKwalifikacjaService.filter(filter);
 
 		ObservableList<TabKwalifikacja> data = FXCollections.observableArrayList(list);
 		table_kwalifikacja.setItems(null);

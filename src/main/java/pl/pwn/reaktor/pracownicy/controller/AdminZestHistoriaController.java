@@ -102,7 +102,7 @@ public class AdminZestHistoriaController extends ControllerTemplate{
 		String pensjaValue = tf_filter_pensja.getText();
 		
 		ZestHistoriaFilter filter = new ZestHistoriaFilter(imieValue,nazwiskoValue,poprzPracodawcaValue,doswiadczenieValue,pensjaValue);
-		List<ZestHistoria> list = adminZestHistoriaService.filter(filter);
+		List<ZestHistoria> list = (List<ZestHistoria>) adminZestHistoriaService.filter(filter);
 
 		ObservableList<ZestHistoria> data = FXCollections.observableArrayList(list);
 		table_historia.setItems(null);

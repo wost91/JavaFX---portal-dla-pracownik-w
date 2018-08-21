@@ -168,7 +168,7 @@ public class AdminZestPracownicyController extends ControllerTemplate{
 		String sumaValue = tf_filter_suma.getText();
 
 		ZestPracownicyFilter filter = new ZestPracownicyFilter(idValue,imieValue,nazwiskoValue,dzialValue,stanowiskoValue,pensjaValue,stazValue,kwalifikacjaValue,premiaValue,sumaValue);
-		List<ZestPracownicy> list = adminZestPracownicyService.filter(filter);
+		List<ZestPracownicy> list = (List<ZestPracownicy>) adminZestPracownicyService.filter(filter);
 
 		ObservableList<ZestPracownicy> data = FXCollections.observableArrayList(list);
 		table_pracownicy.setItems(null);

@@ -103,7 +103,7 @@ public class AdminTabLogowanieController extends ControllerTemplate{
     	String dostepValue = tf_filter_dostep.getText();
 		
 		TabLogowanieFilter filter = new TabLogowanieFilter(loginValue,hasloValue,dostepValue);
-		List<TabLogowanie> list = adminTabLogowanieService.filter(filter);
+		List<TabLogowanie> list = (List<TabLogowanie>) adminTabLogowanieService.filter(filter);
 
 		ObservableList<TabLogowanie> data = FXCollections.observableArrayList(list);
 		table_logowanie.setItems(null);

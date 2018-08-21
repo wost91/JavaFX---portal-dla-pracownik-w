@@ -87,7 +87,7 @@ public class AdminTabPremiaController extends ControllerTemplate{
     	String premiaValue = tf_filter_premia.getText();
 		
 		TabPremiaFilter filter = new TabPremiaFilter(premiaValue);
-		List<TabPremia> list = adminTabPremiaService.filter(filter);
+		List<TabPremia> list = (List<TabPremia>) adminTabPremiaService.filter(filter);
 
 		ObservableList<TabPremia> data = FXCollections.observableArrayList(list);
 		table_premia.setItems(null);

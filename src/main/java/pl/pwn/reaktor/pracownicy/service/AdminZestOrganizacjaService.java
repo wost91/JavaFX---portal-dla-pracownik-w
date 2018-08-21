@@ -9,6 +9,8 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
+import pl.pwn.reaktor.pracownicy.model.ZestHistoria;
+import pl.pwn.reaktor.pracownicy.model.ZestHistoriaFilter;
 import pl.pwn.reaktor.pracownicy.model.ZestOrganizacja;
 import pl.pwn.reaktor.pracownicy.model.ZestOrganizacjaFilter;
 import pl.pwn.reaktor.pracownicy.util.HibernateUtil;
@@ -23,9 +25,38 @@ public class AdminZestOrganizacjaService extends ServiceTemplate{
 	}
 	public String reg2() {
 		return null;		
-	}		
+	}
+	public String condition1(int i) {
+		if(i==0) {
+		return "Dzia³:";
+		}
+		else return "x";
+	}
+	public Class<ZestOrganizacja> getCl(){
+		return ZestOrganizacja.class;
+	}	
+	public void colList(List<String> colList){
+		colList.add("dzial");
+		colList.add("budzet");
+		colList.add("liczbaPracownikow");
+		colList.add("dyrektor");
+	}	
+	public Object getter(int i, Object filter) {
+		if(i==0) {
+			return ((ZestOrganizacjaFilter) filter).getDzial();
+		}
+		else if(i==1) {
+			return ((ZestOrganizacjaFilter) filter).getBudzet();
+		} 
+		else if(i==2) {
+			return ((ZestOrganizacjaFilter) filter).getLiczbaPracownikow();
+		}
+		else {
+			return ((ZestOrganizacjaFilter) filter).getDyrektor();
+		}		
+	}
 	
-	public List<ZestOrganizacja> filter(ZestOrganizacjaFilter filter) {
+	/*public List<ZestOrganizacja> filter(ZestOrganizacjaFilter filter) {
 
 		Session session = HibernateUtil.getSessionFactory().openSession();
 
@@ -49,5 +80,5 @@ public class AdminZestOrganizacjaService extends ServiceTemplate{
 
 		session.close();
 		return kryteria;
-	}
+	}*/
 }

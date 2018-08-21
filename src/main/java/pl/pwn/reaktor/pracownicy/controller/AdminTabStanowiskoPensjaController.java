@@ -87,7 +87,7 @@ public class AdminTabStanowiskoPensjaController extends ControllerTemplate{
     	String pensjaValue = tf_filter_pensja.getText();
 								
 		TabStanowiskoPensjaFilter filter = new TabStanowiskoPensjaFilter(pensjaValue);
-		List<TabStanowiskoPensja> list = adminTabStanowiskoPensjaService.filter(filter);
+		List<TabStanowiskoPensja> list = (List<TabStanowiskoPensja>) adminTabStanowiskoPensjaService.filter(filter);
 
 		ObservableList<TabStanowiskoPensja> data = FXCollections.observableArrayList(list);
 		table_stanowisko_pensja.setItems(null);

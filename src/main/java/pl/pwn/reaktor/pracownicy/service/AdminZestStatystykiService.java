@@ -9,6 +9,8 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
+import pl.pwn.reaktor.pracownicy.model.ZestPracownicy;
+import pl.pwn.reaktor.pracownicy.model.ZestPracownicyFilter;
 import pl.pwn.reaktor.pracownicy.model.ZestStatystyki;
 import pl.pwn.reaktor.pracownicy.model.ZestStatystykiFilter;
 import pl.pwn.reaktor.pracownicy.util.HibernateUtil;
@@ -23,40 +25,49 @@ public class AdminZestStatystykiService extends ServiceTemplate{
 	}
 	public String reg2() {
 		return null;		
-	}			
-	
-	public List<ZestStatystyki> filter(ZestStatystykiFilter filter) {
-
-		Session session = HibernateUtil.getSessionFactory().openSession();
-
-		Criteria criteria = session.createCriteria(ZestStatystyki.class);
-
-		if (Objects.nonNull(filter.getDzial()) && !"Dzia³:".equals(filter.getDzial())
-				&& !filter.getDzial().isEmpty()) {
-			criteria.add(Restrictions.eq("dzial", filter.getDzial()));
+	}
+	public String condition1(int i) {
+		if(i==0) {
+		return "Dzia³:";
+		}		
+		else return "x";
+	}
+	public Class<ZestStatystyki> getCl(){
+		return ZestStatystyki.class;
+	}	
+	public void colList(List<String> colList){
+		colList.add("dzial");
+		colList.add("budzet");
+		colList.add("liczbaPracownikow");
+		colList.add("budzetNaPracownika");
+		colList.add("sredniaPensja");
+		colList.add("sumaPensji");
+		colList.add("udzialPensji");		
+	}	
+	public Object getter(int i, Object filter) {
+		if(i==0) {
+			return ((ZestStatystykiFilter) filter).getDzial();
 		}
-		if (Objects.nonNull(filter.getBudzet()) && !filter.getBudzet().isEmpty()) {
-			criteria.add(Restrictions.eq("budzet", filter.getBudzet()));
+		else if(i==1) {
+			return ((ZestStatystykiFilter) filter).getBudzet();
+		} 
+		else if(i==2) {
+			return ((ZestStatystykiFilter) filter).getLiczbaPracownikow();
 		}
-		if (Objects.nonNull(filter.getLiczbaPracownikow()) && !filter.getLiczbaPracownikow().isEmpty()) {
-			criteria.add(Restrictions.eq("liczbaPracownikow", filter.getLiczbaPracownikow()));
+		else if(i==3) {
+			return ((ZestStatystykiFilter) filter).getBudzetNaPracownika();
+		} 
+		else if(i==4) {
+			return ((ZestStatystykiFilter) filter).getSredniaPensja();
 		}
-		if (Objects.nonNull(filter.getBudzetNaPracownika()) && !filter.getBudzetNaPracownika().isEmpty()) {
-			criteria.add(Restrictions.eq("budzetNaPracownika", filter.getBudzetNaPracownika()));
+		else if(i==5) {
+			return ((ZestStatystykiFilter) filter).getSumaPensji();
+		} 
+		else if(i==6) {
+			return ((ZestStatystykiFilter) filter).getUdzialPensji();
+		}		
+		else {
+			return ((ZestStatystykiFilter) filter).getUdzialPensji();
 		}
-		if (Objects.nonNull(filter.getSredniaPensja()) && !filter.getSredniaPensja().isEmpty()) {
-			criteria.add(Restrictions.eq("sredniaPensja", filter.getSredniaPensja()));
-		}
-		if (Objects.nonNull(filter.getSumaPensji()) && !filter.getSumaPensji().isEmpty()) {
-			criteria.add(Restrictions.eq("sumaPensji", filter.getSumaPensji()));
-		}
-		if (Objects.nonNull(filter.getUdzialPensji()) && !filter.getUdzialPensji().isEmpty()) {
-			criteria.add(Restrictions.eq("udzialPensji", filter.getUdzialPensji()));
-		}
-		
-		List<ZestStatystyki> kryteria = criteria.list();
-
-		session.close();
-		return kryteria;
 	}
 }

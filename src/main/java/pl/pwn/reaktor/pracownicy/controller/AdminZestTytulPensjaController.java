@@ -92,7 +92,7 @@ public class AdminZestTytulPensjaController extends ControllerTemplate{
 		String sredniaValue = tf_filter_srednia.getText();
 				
 		ZestTytulPensjaFilter filter = new ZestTytulPensjaFilter(tytulValue,liczebnoscValue,sredniaValue);
-		List<ZestTytulPensja> list = adminZestTytulPensjaService.filter(filter);
+		List<ZestTytulPensja> list = (List<ZestTytulPensja>) adminZestTytulPensjaService.filter(filter);
 
 		ObservableList<ZestTytulPensja> data = FXCollections.observableArrayList(list);
 		table_tytul_a_pensja.setItems(null);

@@ -87,7 +87,7 @@ public class AdminTabStazController extends ControllerTemplate{
     	String dzialValue = tf_filter_staz.getText();
 		
 		TabStazFilter filter = new TabStazFilter(dzialValue);
-		List<TabStaz> list = adminTabStazService.filter(filter);
+		List<TabStaz> list = (List<TabStaz>) adminTabStazService.filter(filter);
 
 		ObservableList<TabStaz> data = FXCollections.observableArrayList(list);
 		table_staz.setItems(null);

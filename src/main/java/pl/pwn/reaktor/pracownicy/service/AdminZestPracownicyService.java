@@ -9,6 +9,8 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
+import pl.pwn.reaktor.pracownicy.model.ZestOrganizacja;
+import pl.pwn.reaktor.pracownicy.model.ZestOrganizacjaFilter;
 import pl.pwn.reaktor.pracownicy.model.ZestPracownicy;
 import pl.pwn.reaktor.pracownicy.model.ZestPracownicyFilter;
 import pl.pwn.reaktor.pracownicy.util.HibernateUtil;
@@ -23,51 +25,64 @@ public class AdminZestPracownicyService extends ServiceTemplate{
 	}
 	public String reg2() {
 		return null;		
-	}			
-
-	public List<ZestPracownicy> filter(ZestPracownicyFilter filter) {
-
-		Session session = HibernateUtil.getSessionFactory().openSession();
-
-		Criteria criteria = session.createCriteria(ZestPracownicy.class);
-
-		if (Objects.nonNull(filter.getId()) && !filter.getId().isEmpty()) {
-			criteria.add(Restrictions.eq("id", filter.getId()));
-		}
-		if (Objects.nonNull(filter.getImie()) && !filter.getImie().isEmpty()) {
-			criteria.add(Restrictions.eq("imie", filter.getImie()));
-		}
-		if (Objects.nonNull(filter.getNazwisko()) && !filter.getNazwisko().isEmpty()) {
-			criteria.add(Restrictions.eq("nazwisko", filter.getNazwisko()));
-		}
-		if (Objects.nonNull(filter.getDzial()) && !"Dzia³:".equals(filter.getDzial())
-				&& !filter.getDzial().isEmpty()) {
-			criteria.add(Restrictions.eq("dzial", filter.getDzial()));
-		}
-		if (Objects.nonNull(filter.getStanowisko()) && !"Stanowisko:".equals(filter.getStanowisko())
-				&& !filter.getStanowisko().isEmpty()) {
-			criteria.add(Restrictions.eq("stanowisko", filter.getStanowisko()));
-		}
-		if (Objects.nonNull(filter.getPensja()) && !filter.getPensja().isEmpty()) {
-			criteria.add(Restrictions.eq("pensja", filter.getPensja()));
-		}
-		if (Objects.nonNull(filter.getStaz()) && !filter.getStaz().isEmpty()) {
-			criteria.add(Restrictions.eq("staz", filter.getStaz()));
-		}
-		if (Objects.nonNull(filter.getKwalifikacja()) && !"Kwalifikacja".equals(filter.getKwalifikacja())
-				&& !filter.getKwalifikacja().isEmpty()) {
-			criteria.add(Restrictions.eq("kwalifikacja", filter.getKwalifikacja()));
-		}
-		if (Objects.nonNull(filter.getPremia()) && !filter.getPremia().isEmpty()) {
-			criteria.add(Restrictions.eq("premia", filter.getPremia()));
-		}
-		if (Objects.nonNull(filter.getSuma()) && !filter.getSuma().isEmpty()) {
-			criteria.add(Restrictions.eq("suma", filter.getSuma()));
-		}
-		List<ZestPracownicy> kryteria = criteria.list();
-
-		session.close();
-		return kryteria;
 	}
-
+	public String condition1(int i) {
+		if(i==3) {
+		return "Dzia³:";
+		}
+		else if(i==4) {
+			return "Stanowisko:";
+		}
+		else if(i==7) {
+			return "Kwalifikacja:";
+		}
+		else return "x";
+	}
+	public Class<ZestPracownicy> getCl(){
+		return ZestPracownicy.class;
+	}	
+	public void colList(List<String> colList){
+		colList.add("id");
+		colList.add("imie");
+		colList.add("nazwisko");
+		colList.add("dzial");
+		colList.add("stanowisko");
+		colList.add("pensja");
+		colList.add("staz");
+		colList.add("kwalifikacja");
+		colList.add("premia");
+		colList.add("suma");
+	}	
+	public Object getter(int i, Object filter) {
+		if(i==0) {
+			return ((ZestPracownicyFilter) filter).getId();
+		}
+		else if(i==1) {
+			return ((ZestPracownicyFilter) filter).getImie();
+		} 
+		else if(i==2) {
+			return ((ZestPracownicyFilter) filter).getNazwisko();
+		}
+		else if(i==3) {
+			return ((ZestPracownicyFilter) filter).getDzial();
+		} 
+		else if(i==4) {
+			return ((ZestPracownicyFilter) filter).getStanowisko();
+		}
+		else if(i==5) {
+			return ((ZestPracownicyFilter) filter).getPensja();
+		} 
+		else if(i==6) {
+			return ((ZestPracownicyFilter) filter).getStaz();
+		}
+		else if(i==7) {
+			return ((ZestPracownicyFilter) filter).getKwalifikacja();
+		} 
+		else if(i==8) {
+			return ((ZestPracownicyFilter) filter).getPremia();
+		}
+		else {
+			return ((ZestPracownicyFilter) filter).getSuma();
+		}		
+	}
 }

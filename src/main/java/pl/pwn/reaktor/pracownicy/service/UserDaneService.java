@@ -10,8 +10,7 @@ import pl.pwn.reaktor.pracownicy.controller.LoginController;
 import pl.pwn.reaktor.pracownicy.model.ZestPracownicy;
 import pl.pwn.reaktor.pracownicy.util.HibernateUtil;
 
-public class UserDaneService {
-	
+public class UserDaneService {	
 	@SuppressWarnings("unchecked")
 	public List<ZestPracownicy> getAll() {
 		Session session = HibernateUtil.getSessionFactory().openSession();

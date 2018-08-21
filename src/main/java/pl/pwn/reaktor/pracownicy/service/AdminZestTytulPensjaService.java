@@ -9,6 +9,8 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
+import pl.pwn.reaktor.pracownicy.model.ZestStatystyki;
+import pl.pwn.reaktor.pracownicy.model.ZestStatystykiFilter;
 import pl.pwn.reaktor.pracownicy.model.ZestTytulPensja;
 import pl.pwn.reaktor.pracownicy.model.ZestTytulPensjaFilter;
 import pl.pwn.reaktor.pracownicy.util.HibernateUtil;
@@ -23,28 +25,30 @@ public class AdminZestTytulPensjaService extends ServiceTemplate{
 	}
 	public String reg2() {
 		return null;		
+	}
+	public String condition1(int i) {
+		if(i==0) {
+		return "Tytu³:";
+		}		
+		else return "x";
+	}
+	public Class<ZestTytulPensja> getCl(){
+		return ZestTytulPensja.class;
 	}	
-
-	public List<ZestTytulPensja> filter(ZestTytulPensjaFilter filter) {
-
-		Session session = HibernateUtil.getSessionFactory().openSession();
-
-		Criteria criteria = session.createCriteria(ZestTytulPensja.class);
-
-		if (Objects.nonNull(filter.getTytul()) && !"Tytu³:".equals(filter.getTytul())
-				&& !filter.getTytul().isEmpty()) {
-			criteria.add(Restrictions.eq("tytul", filter.getTytul()));
+	public void colList(List<String> colList){
+		colList.add("tytul");
+		colList.add("liczebnosc");
+		colList.add("srednia");
+	}	
+	public Object getter(int i, Object filter) {
+		if(i==0) {
+			return ((ZestTytulPensjaFilter) filter).getTytul();
 		}
-		if (Objects.nonNull(filter.getLiczebnosc()) && !filter.getLiczebnosc().isEmpty()) {
-			criteria.add(Restrictions.eq("liczebnosc", filter.getLiczebnosc()));
+		else if(i==1) {
+			return ((ZestTytulPensjaFilter) filter).getLiczebnosc();
+		}		
+		else {
+			return ((ZestTytulPensjaFilter) filter).getSrednia();
 		}
-		if (Objects.nonNull(filter.getSrednia()) && !filter.getSrednia().isEmpty()) {
-			criteria.add(Restrictions.eq("srednia", filter.getSrednia()));
-		}
-		
-		List<ZestTytulPensja> kryteria = criteria.list();
-
-		session.close();
-		return kryteria;
 	}
 }

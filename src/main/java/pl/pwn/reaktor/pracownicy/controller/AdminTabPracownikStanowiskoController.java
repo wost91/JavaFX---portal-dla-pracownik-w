@@ -87,7 +87,7 @@ public class AdminTabPracownikStanowiskoController extends ControllerTemplate{
     	String dzialValue = tf_filter_dzial.getText();
 		
 		TabPracownikStanowiskoFilter filter = new TabPracownikStanowiskoFilter(dzialValue);
-		List<TabPracownikStanowisko> list = adminTabPracownikStanowiskoService.filter(filter);
+		List<TabPracownikStanowisko> list = (List<TabPracownikStanowisko>) adminTabPracownikStanowiskoService.filter(filter);
 
 		ObservableList<TabPracownikStanowisko> data = FXCollections.observableArrayList(list);
 		table_pracownik_stanowisko.setItems(null);

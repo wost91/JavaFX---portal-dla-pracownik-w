@@ -1,20 +1,14 @@
 package pl.pwn.reaktor.pracownicy.controller;
 
-import java.io.IOException;
 import java.util.List;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import pl.pwn.reaktor.pracownicy.Main;
 import pl.pwn.reaktor.pracownicy.model.ZestHistoria;
 import pl.pwn.reaktor.pracownicy.service.UserHistoriaService;
 

@@ -102,7 +102,7 @@ public class AdminZestOrganizacjaController extends ControllerTemplate{
 		String dyrektorValue = tf_filter_dyrektor.getText();
 		
 		ZestOrganizacjaFilter filter = new ZestOrganizacjaFilter(dzialValue,budzetValue,liczbaPracValue,dyrektorValue);
-		List<ZestOrganizacja> list = adminZestOrganizacjaService.filter(filter);
+		List<ZestOrganizacja> list = (List<ZestOrganizacja>) adminZestOrganizacjaService.filter(filter);
 
 		ObservableList<ZestOrganizacja> data = FXCollections.observableArrayList(list);
 		table_organizacja.setItems(null);
